@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #333;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    /*ove koliko ce brzo da se  pojaljuje sve*/
+}
+
+.slide.current {
+    opacity: 1;
+}
+
+/*mrtvi razmakkkk*/
+
+
+.slide .content {
+    position: absolute;
+    bottom: 30px;
+    left: -600px;
+    /*ovde izlazi van monitor*/
+    opacity: 0;
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    padding: 35px;
+}
+
+
+.slide .current h1 {
+    margin-bottom: 10px;
+}
+
+.slide.current .content {
+    opacity: 1;
+    transform: translateX(600px);
+    /*ovde ga  vracam u vidno polje*/
+    transition: all 0.7s ease-in-out 0.3s;
+    /*ovde da klizi*/
+}
+
+
+.buttons button#next {
+    position: absolute;
+    top: 40%;
+    right: 15px;
+}
+
+.buttons button#prev {
+    position: absolute;
+    top: 40%;
+    left: 15px;
+}
+
+.buttons button {
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    padding: 13px 15px;
+    border-radius: 50%;
+    outline: none;
+}
+
+.buttons button:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+@media (max-width: 500px) {
+    .slide .content {
+        bottom: -300px;
+        left: 0;
+        width: 100%;
+    }
+
+    .slide.current .content {
+        transform: translateY(-300px);
+    }
+
+
+}
+
+
+.slide:first-child {
+    background: url("./Slike/kuca.jpg") no-repeat center center/cover;
+
+}
+
+.slide:nth-child(2) {
+    background: url("./Slike/bunadzia.jpg") no-repeat center center/cover;
+
+}
+
+.slide:nth-child(3) {
+    background: url("./Slike/jezerce.jpg") no-repeat center center/cover;
+}
+
+.slide:nth-child(4) {
+    background: url("./Slike/kamenje.jpg") no-repeat center top/cover;
+}
+
+.slide:nth-child(5) {
+    background: url("./Slike/katedrala.jpg") no-repeat center top/cover;
+}
+
+.slide:nth-child(6) {
+    background: url("./Slike/pop.jpg") no-repeat center top/cover;
+}
